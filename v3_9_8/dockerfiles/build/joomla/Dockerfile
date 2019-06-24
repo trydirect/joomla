@@ -1,4 +1,4 @@
-FROM joomla:3.9.8-fpm
+FROM joomla:3.9.8-php7.2-fpm
 
 LABEL maintainer="info@optimum-web.com"
 
