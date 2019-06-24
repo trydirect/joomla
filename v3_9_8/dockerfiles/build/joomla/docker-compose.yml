@@ -1,0 +1,11 @@
+joomla:
+  build: .
+  environment:
+    SERVER_NAME: localhost
+    JOOMLA_DB_HOST: db
+    JOOMLA_DB_NAME: joomla
+    JOOMLA_DB_USER: sample
+    JOOMLA_DB_PASSWORD: sample
+  ports:
+    - "9000"
+  entrypoint: /usr/bin/supervisord -c /etc/supervisor/supervisord.conf -n
