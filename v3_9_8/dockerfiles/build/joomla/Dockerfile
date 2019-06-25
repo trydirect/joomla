@@ -17,14 +17,14 @@ RUN mkdir -p /run/php && \
     chown -R joomla. /var/log/supervisor
 
 # Copy wp-config
-COPY config/www.conf /etc/php/7.2/fpm/pool.d
+COPY config/www.conf /usr/local/etc/php-fpm.d
 COPY config/supervisord.conf /etc/supervisor/conf.d/joomla.conf
-COPY config/php-fpm.conf /etc/php/7.2/fpm/php-fpm.conf
+COPY config/php-fpm.conf /usr/local/etc/php-fpm.conf
 
 # ----------------------------------------------------------
 # PHP-fpm Configgi
 # ----------------------------------------------------------
-RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.2/fpm/php-fpm.conf
+RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /usr/local/etc/php-fpm.conf
 
 VOLUME ["/var/www/html", "/var/log"]
 EXPOSE 9000
