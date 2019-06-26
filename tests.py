@@ -32,7 +32,7 @@ assert nginx.status == 'running'
 # Symfony PHP
 php = client.containers.get('joomla')
 assert php.status == 'running'
-php_conf = php.exec_run("php-fpm7.2 -t")
+php_conf = php.exec_run("php-fpm -t")
 print(php_conf.output.decode())
 assert 'configuration file /usr/local/etc/php-fpm.conf test is successful' in php_conf.output.decode()
 php_proc = php.exec_run("sh -c 'ps aux |grep php-fpm'")
