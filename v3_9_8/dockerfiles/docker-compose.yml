@@ -24,7 +24,6 @@ services:
     links:
       - joomladb:db
     volumes:
-      - joomla:/usr/share/nginx/www
       - ./configs/supervisord/joomla.conf:/etc/supervisord.conf
       - ./configs/php/php.ini:/etc/php/7.2/fpm/php.ini
     ports:
@@ -47,5 +46,4 @@ services:
       - ./configs/nginx/conf.d:/etc/nginx/conf.d
       - ./configs/supervisord/nginx.conf:/etc/supervisor/conf.d/nginx.conf
       - ./configs/cron/nginx:/var/spool/cron/crontabs
-      - joomla:/usr/share/nginx/www
     entrypoint: /usr/bin/supervisord -c /etc/supervisor/supervisord.conf -n
