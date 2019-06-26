@@ -24,7 +24,7 @@ services:
     links:
       - joomladb:db
     volumes:
-      - joomla:/var/www/html/joomla-3.9.8
+      - joomla:/usr/share/nginx/www
       - ./configs/supervisord/joomla.conf:/etc/supervisord.conf
       - ./configs/php/php.ini:/etc/php/7.2/fpm/php.ini
     ports:
