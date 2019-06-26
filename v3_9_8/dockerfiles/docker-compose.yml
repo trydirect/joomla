@@ -47,5 +47,5 @@ services:
       - ./configs/nginx/conf.d:/etc/nginx/conf.d
       - ./configs/supervisord/nginx.conf:/etc/supervisor/conf.d/nginx.conf
       - ./configs/cron/nginx:/var/spool/cron/crontabs
-      - wp:/usr/share/nginx/www
+      - joomla:/usr/share/nginx/www
     entrypoint: /usr/bin/supervisord -c /etc/supervisor/supervisord.conf -n
