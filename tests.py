@@ -33,7 +33,7 @@ assert nginx.status == 'running'
 php = client.containers.get('joomla')
 assert php.status == 'running'
 php_conf = php.exec_run("php-fpm7.2 -t")
-# print(php_conf.output.decode())
+print(php_conf.output.decode())
 assert 'configuration file /usr/local/etc/php-fpm.conf test is successful' in php_conf.output.decode()
 php_proc = php.exec_run("sh -c 'ps aux |grep php-fpm'")
 print(php_proc.output.decode())
@@ -44,7 +44,7 @@ assert 'fpm is running, pid' in php.logs()
 mysql = client.containers.get('joomladb')
 assert mysql.status == 'running'
 mycnf = mysql.exec_run("/usr/sbin/mysqld --verbose  --help")
-# print(mycnf.output.decode())
+print(mycnf.output.decode())
 print(mysql.logs())
 mysql_log = mysql.logs()
 assert "Version: '5.7.26'" in mysql_log
