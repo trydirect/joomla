@@ -6,7 +6,7 @@ LABEL maintainer="info@optimum-web.com"
 # no tty for container
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y supervisor
+RUN apt-get update && apt-get install -y supervisor procps curl
 
 RUN groupadd -r -g 2000 joomla; useradd -r -u 2000 -g 2000 -m -c "app account" -d /home/joomla -s /bin/bash joomla
 
